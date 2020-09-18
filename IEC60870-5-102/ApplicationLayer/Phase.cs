@@ -35,6 +35,29 @@ namespace IEC60870_5_102.ApplicationLayer
 
         }
 
+        public Phase(float c, float v, bool iv)
+        {
+            this.Current = c;
+            this.Voltage = v;
+            this.IV = iv;
+        }
+
+        #endregion
+
+        #region Object
+
+        public override bool Equals(object obj)
+        {
+            Phase p = obj as Phase;
+
+            if(p == null)
+            {
+                return false;
+            }
+
+            return Math.Abs(this.Current - p.Current) <= 0.2 && Math.Abs(this.Voltage - p.Voltage) <= 0.2 && this.IV == p.IV;
+        }
+
         #endregion
 
         #region IEncodeable
@@ -45,7 +68,18 @@ namespace IEC60870_5_102.ApplicationLayer
         /// <param name="encoder">Encoder to use</param>
         public void Encode(IEncoder encoder)
         {
-            throw new NotImplementedException();
+            UInt32 c = (UInt32) (this.Current * 10);
+
+            encoder.Write((byte) ( c & 0xFF ));
+            encoder.Write((byte) (( c >> 8 ) & 0xFF));
+            encoder.Write((byte) (( c >> 16) & 0xFF));
+
+            UInt32 v = (UInt32)(this.Voltage * 10);
+
+            encoder.Write((byte)  ( v & 0xFF));
+            encoder.Write((byte) (( v >>  8) & 0xFF));
+            encoder.Write((byte) (( v >> 16) & 0xFF));
+            encoder.Write((byte) ((this.IV == false) ? 0x80 : 0x00));
         }
 
         /// <summary>

@@ -193,6 +193,22 @@ namespace IEC60870_5_102.ApplicationLayer
 
         #region Object
 
+        public override bool Equals(object obj)
+        {
+            CP40Time2a time = obj as CP40Time2a;
+
+            if (time == null)
+                return false;
+
+            return this.DateTime.Year == this.DateTime.Year && 
+                this.DateTime.Month == this.DateTime.Month &&
+                this.DateTime.Day == this.DateTime.Day &&
+                this.DateTime.Hour == this.DateTime.Hour &&
+                this.DateTime.Day == this.DateTime.Day &&
+                this.DateTime.Minute == this.DateTime.Minute &&
+                this.ETI == time.ETI && this.PTI == time.PTI && this.TIS == time.TIS && this.Valid == time.Valid;
+        }
+
         /// <summary>
         /// Gets a string representing the current instance of the type A date time
         /// </summary>

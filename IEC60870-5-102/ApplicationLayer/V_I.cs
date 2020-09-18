@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Runtime.CompilerServices;
 using IEC60870_5_102.Serialization;
 
 namespace IEC60870_5_102.ApplicationLayer
@@ -47,6 +47,31 @@ namespace IEC60870_5_102.ApplicationLayer
             this.DateTime = new CP40Time2a();
         }
 
+        public V_I(Phase I, Phase II, Phase III, CP40Time2a dateTime)
+        {
+            this.PhaseI = I;
+            this.PhaseII = II;
+            this.PhaseIII = III;
+
+            this.DateTime = dateTime;
+        }
+
+        #endregion
+
+        #region Object
+
+        public override bool Equals(object obj)
+        {
+            V_I v = obj as V_I;
+
+            if(v == null)
+            {
+                return false;
+            }
+
+            return this.PhaseI.Equals(v.PhaseI) && this.PhaseII.Equals(v.PhaseII) && this.PhaseIII.Equals(v.PhaseIII) && this.DateTime.Equals(v.DateTime);
+        }
+
         #endregion
 
         #region IEncodeable
@@ -57,7 +82,11 @@ namespace IEC60870_5_102.ApplicationLayer
         /// <param name="encoder">Encoder to use</param>
         public void Encode(IEncoder encoder)
         {
-            throw new NotImplementedException();
+            this.PhaseI.Encode(encoder);
+            this.PhaseII.Encode(encoder);
+            this.PhaseIII.Encode(encoder);
+
+            this.DateTime.Encode(encoder);
         }
 
         /// <summary>
