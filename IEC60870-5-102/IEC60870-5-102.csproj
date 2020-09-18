@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{20269A69-9584-42E3-A428-C709CB347D20}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IEC60870_5_102</RootNamespace>
+    <AssemblyName>IEC60870-5-102</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LinkLayer\ASDU.cs" />
+    <Compile Include="LinkLayer\ASDUAttribute.cs" />
+    <Compile Include="ApplicationLayer\CommonASDUDirection.cs" />
+    <Compile Include="ApplicationLayer\ContractStatus.cs" />
+    <Compile Include="ApplicationLayer\CP56Time2a.cs" />
+    <Compile Include="ApplicationLayer\C_AC_NA_2.cs" />
+    <Compile Include="ApplicationLayer\C_CB_NT_2.cs" />
+    <Compile Include="ApplicationLayer\C_CB_NU_2.cs" />
+    <Compile Include="ApplicationLayer\C_CI_NT_2.cs" />
+    <Compile Include="ApplicationLayer\C_CI_NU_2.cs" />
+    <Compile Include="ApplicationLayer\C_CS_TA_2.cs" />
+    <Compile Include="ApplicationLayer\C_FS_NA_2.cs" />
+    <Compile Include="ApplicationLayer\C_IV_RQ.cs" />
+    <Compile Include="ApplicationLayer\C_PC_NA_2.cs" />
+    <Compile Include="ApplicationLayer\C_PI_NA_2.cs" />
+    <Compile Include="ApplicationLayer\C_RM_NA_2.cs" />
+    <Compile Include="ApplicationLayer\C_SP_NB_2.cs" />
+    <Compile Include="ApplicationLayer\C_TA_VC_2 .cs" />
+    <Compile Include="ApplicationLayer\C_TA_VM_2.cs" />
+    <Compile Include="ApplicationLayer\C_TI_NA_2.cs" />
+    <Compile Include="ApplicationLayer\EnergyTote.cs" />
+    <Compile Include="ApplicationLayer\Incidence.cs" />
+    <Compile Include="ApplicationLayer\InstantEnergyTotes.cs" />
+    <Compile Include="ApplicationLayer\InstantPowers.cs" />
+    <Compile Include="ApplicationLayer\InstantValues.cs" />
+    <Compile Include="ApplicationLayer\MeassurePointConfiguration.cs" />
+    <Compile Include="ApplicationLayer\MeassurePointParameters.cs" />
+    <Compile Include="ApplicationLayer\M_IB_TG_2.cs" />
+    <Compile Include="ApplicationLayer\M_IB_TK_2.cs" />
+    <Compile Include="ApplicationLayer\M_IT_TG_2.cs" />
+    <Compile Include="ApplicationLayer\M_IT_TK_2.cs" />
+    <Compile Include="ApplicationLayer\M_IV_RP.cs" />
+    <Compile Include="ApplicationLayer\M_RM_NA_2.cs" />
+    <Compile Include="ApplicationLayer\M_SP_TA_2.cs" />
+    <Compile Include="ApplicationLayer\M_TA_VC_2.cs" />
+    <Compile Include="ApplicationLayer\M_TA_VM_2.cs" />
+    <Compile Include="ApplicationLayer\M_TI_TA_2 .cs" />
+    <Compile Include="ApplicationLayer\ObjectsDirections.cs" />
+    <Compile Include="ApplicationLayer\Power.cs" />
+    <Compile Include="ApplicationLayer\PowerIntegrator.cs" />
+    <Compile Include="ApplicationLayer\P_ME_NA_2.cs" />
+    <Compile Include="ApplicationLayer\Qualifier.cs" />
+    <Compile Include="ApplicationLayer\RegisterDirections.cs" />
+    <Compile Include="ApplicationLayer\CP40Time2a.cs" />
+    <Compile Include="ApplicationLayer\SerialPortConfiguration.cs" />
+    <Compile Include="ApplicationLayer\TariffInformationObject.cs" />
+    <Compile Include="ApplicationLayer\ToteIntegrator.cs" />
+    <Compile Include="ApplicationLayer\TransmissionCause.cs" />
+    <Compile Include="ApplicationLayer\TransmissionCauses.cs" />
+    <Compile Include="ApplicationLayer\V_I.cs" />
+    <Compile Include="LinkLayer\ControlField.cs" />
+    <Compile Include="LinkLayer\FunctionCodes.cs" />
+    <Compile Include="LinkLayer\FixedTelegram.cs" />
+    <Compile Include="ApplicationLayer\Phase.cs" />
+    <Compile Include="LinkLayer\Link.cs" />
+    <Compile Include="LinkLayer\VariableTelegram.cs" />
+    <Compile Include="Master.cs" />
+    <Compile Include="Serialization\EncodeableFactory.cs" />
+    <Compile Include="TransportLayer\IClient.cs" />
+    <Compile Include="TransportLayer\MessagePacket.cs" />
+    <Compile Include="TransportLayer\ModemClient.cs" />
+    <Compile Include="TransportLayer\ModemEndpoint.cs" />
+    <Compile Include="TransportLayer\RS232Client.cs" />
+    <Compile Include="TransportLayer\SerialEndpoint.cs" />
+    <Compile Include="TransportLayer\TcpClient.cs" />
+    <Compile Include="TransportLayer\TcpEndpoint.cs" />
+    <Compile Include="TransportLayer\Transport.cs" />
+    <Compile Include="TransportLayer\TransportEndpoint.cs" />
+    <Compile Include="LinkLayer\Telegram.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\BinaryDecoder.cs" />
+    <Compile Include="Serialization\BinaryEncoder.cs" />
+    <Compile Include="Serialization\Coder.cs" />
+    <Compile Include="Serialization\IDecoder.cs" />
+    <Compile Include="Serialization\IEncoder.cs" />
+    <Compile Include="Serialization\IEncodeable.cs" />
+    <Compile Include="Utils\ExtensionMethods.cs" />
+    <Compile Include="Utils\Helpers.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
