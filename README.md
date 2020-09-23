@@ -129,4 +129,4 @@ List<PowerIntegrator> integrators = master.RequestOperationalIntegratorsTotes(
 ```
 
 <h2>Sample application</h2>
-<p>A sample application can be found under the project <b>IEC60870 Test</b></p> but the details of the connection and the meter have to be adapted.</p>
+<p>A sample application can be found under the project <b>IEC60870 Test</b> but the details of the connection and the meter have to be adapted.</p>
